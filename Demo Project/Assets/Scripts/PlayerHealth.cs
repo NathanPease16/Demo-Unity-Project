@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
@@ -25,9 +23,10 @@ public class PlayerHealth : MonoBehaviour
     {
         // Check if health has dropped to zero
         if(currentHealth <= 0)
-        {
             // Reload the scene, effectively restarting the level
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
     }
 }
+
+
+

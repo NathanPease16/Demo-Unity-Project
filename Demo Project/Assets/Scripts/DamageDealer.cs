@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DamageDealer : MonoBehaviour
@@ -9,9 +7,6 @@ public class DamageDealer : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
-        {
-            Debug.Log("AAA");
             collision.gameObject.GetComponent<PlayerHealth>().currentHealth -= _damage;
-        }
     }
 }
