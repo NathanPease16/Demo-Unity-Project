@@ -1,21 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
     [Header("Health Parameters")]
     [SerializeField] private float _maxHealth = 100f;
+    
+    public float currentHealth;
 
-    // Start is called before the first frame update
     void Start()
     {
-    
+        currentHealth = _maxHealth;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        Die();
+    }
+
+    // Handles restarting the game when the player dies
+    void Die()
+    {
+        // Check if health has dropped to zero
+        if(currentHealth <= 0)
+        {
+            // Reload the scene, effectively restarting the level
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }
